@@ -1,0 +1,165 @@
+<html>
+<style> 
+    #startScreen{
+        position: absolute;
+        top: 30vh;
+        left: 10vw;
+        width: 80vw;
+        height: 80vh;
+        background-image:url("Grass.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    } 
+    
+    
+    #gameScreen{
+        position: absolute;
+        top: 5vh;
+        left: 5vw;
+        width: 90vw;
+        height: 90vh;
+        background-color: skyblue;
+        display:none;
+    }
+    
+    #endScreen{
+        position: absolute;
+        top: 30vh;
+        left: 10vw;
+        width: 80vw;
+        height: 40vh;
+        background-color: lightpink;
+        display:none;
+    }
+    
+    #gameOverview{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30%;
+        height: 15%;
+        background-color: darkseagreen;
+        border-radius: 12px;
+    }
+    #startBTN{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30%;
+        height: 15%;
+        background-color: darkseagreen;
+        transform: translate(-50%,-50%);
+        border-radius: 12px;
+        cursor: pointer;
+        user-select: none;
+    
+    }
+    #exitBTN{
+        position: absolute;
+        top: 70%;
+        left: 1%;
+        width: 5%;
+        height: 10%;
+        background-color: darkseagreen;
+        border-radius: 5px;
+        cursor: pointer;
+        user-select: none;
+    
+    }
+    #playBTN{
+        position: absolute;
+        top: 30%;
+        left: 10%;
+        width: 30%;
+        height: 15%;
+        background-color: goldenrod;
+        cursor: pointer;
+        user-select: none;
+    
+    }
+   #cloudBTN{
+        position: absolute;
+        top: 30%;
+        left: 70%;
+        width: 15%;
+        height: 10%;
+        background-color: lightcyan;
+        border-radius:12px;
+    }
+    #cloudTop{
+        position: absolute;
+        top: 40%;
+        left: 10%;
+        width: 50%;
+        height: 70%;
+        background-image: url("cloud.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+</style>
+<body>
+    
+<div id="startScreen">
+    <div id="#gameOverview">This game will enable the user to grow trees in a garden wonderland. To start playing, please select the START button. Once you start playing, you can always exit the game by selecting the exit button on the game screen.The goal of the game is to enable clouds in a garden wonderland to go up to the sky.</div>
+    <div id="startBTN"> Start </div>
+    </div>
+    
+<div id="gameScreen">
+    <div id="exitBTN">Exit</div>
+    <div id="cloudBTN">Lyft Cloud!</div>
+    <div id="cloudTop"></div>
+    </div>
+    
+    
+<div id="endScreen"></div>
+    
+<script>
+    var myStartScreen;
+    myStartScreen = document.querySelector("#startScreen");
+    
+    var myGameScreen;
+    myGameScreen = document.querySelector("#gameScreen");
+    
+    var myStartBTN;
+    myStartBTN = document.querySelector("#startBTN");
+    
+    var myExitBTN;
+    myExitBTN = document.querySelector("#exitBTN");
+    
+    var playAgainBTN;
+    playAgainBTN = document.querySelector("#playBTN");
+    
+    myStartBTN.style.fontSize = "3em";
+    myStartBTN.style.textAlign = "center";
+    
+    var myCloud;
+    myCloud = document.querySelector("#cloudBTN");
+    myCloud.addEventListener("click", lyftCloud,false);
+    
+    
+    var myCloudTop;
+    myFlowerTop=document.querySelector("#cloudTop");
+    
+    var myPositionY = 0;
+    
+    function lyftCloud(){
+        myPositionY = myPositionY -  20;
+        myFlowerTop.style.transform="translateY("+myPositionY+"%)";
+    }
+    
+    myStartBTN.addEventListener("click", hideStartShowGame, false);
+    myExitBTN.addEventListener("click", showStartShowGame, false);
+    
+    function hideStartShowGame(){
+        myStartScreen.style.display="none";
+        myGameScreen.style.display = "block";
+    }
+    function showStartShowGame(){
+        myStartScreen.style.display="block";
+        myGameScreen.style.display = "none";
+    }
+
+</script>
+</body>
+</html>
